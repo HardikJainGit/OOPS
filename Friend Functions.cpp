@@ -35,6 +35,36 @@ Complex sumComplex(Complex o1, Complex o2)
     return o3;
 }
 
+class Y; // Forward declration, assurance to below class X that Y exists afterwards
+
+class X
+{
+    int data;
+    public:
+        void setValue(int value)
+        {
+            data = value;
+        }
+    friend void add(X, Y);    
+};
+
+class Y
+{
+    int num;
+    public:
+        void setValue(int value)
+        {
+            num = value;
+        }
+    friend void add(X, Y);    
+
+};
+
+void add(X o1, Y o2)
+{
+    cout << o1.data + o2.num << endl;
+}
+
 int main()
 {
     Complex c1(1,2);
@@ -48,6 +78,14 @@ int main()
     c3.Print();
 
     // all this works if a and b are public but if they are private, we need friend functions
+
+    X a1;
+    a1.setValue(3);
+
+    Y b1;
+    b1.setValue(15);
+
+    add(a1, b1);
 
     return 0;
 }
