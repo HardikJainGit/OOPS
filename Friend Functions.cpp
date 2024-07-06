@@ -35,7 +35,7 @@ Complex sumComplex(Complex o1, Complex o2)
     return o3;
 }
 
-class Y; // Forward declration, assurance to below class X that Y exists afterwards
+class Y; // Forward declaration, assurance to class X assuring that class Y exists afterwards
 
 class X
 {
